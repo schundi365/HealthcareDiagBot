@@ -1,0 +1,522 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS for Phase 1 */
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  /* Button styles */
+  .btn {
+    @apply inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors;
+  }
+  
+  .btn-primary {
+    @apply text-white bg-primary-600 hover:bg-primary-700 focus:ring-primary-500;
+  }
+  
+  .btn-secondary {
+    @apply text-gray-700 bg-white border-gray-300 hover:bg-gray-50 focus:ring-primary-500;
+  }
+  
+  .btn-danger {
+    @apply text-white bg-red-600 hover:bg-red-700 focus:ring-red-500;
+  }
+
+  /* Card styles */
+  .card {
+    @apply bg-white shadow rounded-lg;
+  }
+  
+  .card-header {
+    @apply px-6 py-4 border-b border-gray-200;
+  }
+  
+  .card-body {
+    @apply px-6 py-4;
+  }
+
+  /* Loading spinner */
+  .loading-spinner {
+    @apply inline-block w-4 h-4 border-2 border-gray-300 border-t-primary-600 rounded-full animate-spin;
+  }
+
+  /* Form styles */
+  .form-input {
+    @apply block w-full border-gray-300 rounded-md shadow-sm focus:ring-primary-500 focus:border-primary-500 sm:text-sm;
+  }
+  
+  .form-select {
+    @apply block w-full border-gray-300 rounded-md shadow-sm focus:ring-primary-500 focus:border-primary-500 sm:text-sm;
+  }
+  
+  .form-textarea {
+    @apply block w-full border-gray-300 rounded-md shadow-sm focus:ring-primary-500 focus:border-primary-500 sm:text-sm;
+  }
+}
+
+/* Custom color variables */
+:root {
+  --color-primary-50: #eff6ff;
+  --color-primary-100: #dbeafe;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #2563eb;
+  --color-primary-700: #1d4ed8;
+  
+  --color-medical-50: #f0f9ff;
+  --color-medical-100: #e0f2fe;
+  --color-medical-500: #0ea5e9;
+  --color-medical-600: #0284c7;
+  
+  --color-success-100: #dcfce7;
+  --color-success-500: #22c55e;
+  --color-success-600: #16a34a;
+  --color-success-800: #166534;
+  
+  --color-warning-500: #eab308;
+  
+  --color-danger-500: #ef4444;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  body {
+    @apply antialiased;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md border border-transparent px-4 py-2 text-sm font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors;
+  }
+  
+  .btn-primary {
+    @apply btn bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500;
+  }
+  
+  .btn-secondary {
+    @apply btn bg-gray-200 text-gray-900 hover:bg-gray-300 focus:ring-gray-500;
+  }
+  
+  .btn-success {
+    @apply btn bg-success-600 text-white hover:bg-success-700 focus:ring-success-500;
+  }
+  
+  .btn-warning {
+    @apply btn bg-warning-600 text-white hover:bg-warning-700 focus:ring-warning-500;
+  }
+  
+  .btn-danger {
+    @apply btn bg-danger-600 text-white hover:bg-danger-700 focus:ring-danger-500;
+  }
+  
+  .btn-outline {
+    @apply btn border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:ring-primary-500;
+  }
+  
+  .card {
+    @apply bg-white overflow-hidden shadow rounded-lg;
+  }
+  
+  .card-header {
+    @apply px-4 py-5 sm:px-6 border-b border-gray-200;
+  }
+  
+  .card-body {
+    @apply px-4 py-5 sm:p-6;
+  }
+  
+  .form-input {
+    @apply block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm;
+  }
+  
+  .form-label {
+    @apply block text-sm font-medium text-gray-700 mb-1;
+  }
+  
+  .form-error {
+    @apply mt-1 text-sm text-danger-600;
+  }
+  
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  
+  .badge-success {
+    @apply badge bg-success-100 text-success-800;
+  }
+  
+  .badge-warning {
+    @apply badge bg-warning-100 text-warning-800;
+  }
+  
+  .badge-danger {
+    @apply badge bg-danger-100 text-danger-800;
+  }
+  
+  .badge-info {
+    @apply badge bg-medical-100 text-medical-800;
+  }
+  
+  .badge-gray {
+    @apply badge bg-gray-100 text-gray-800;
+  }
+  
+  .loading-spinner {
+    @apply animate-spin rounded-full h-4 w-4 border-b-2 border-current;
+  }
+  
+  .loading-dots::after {
+    content: '';
+    animation: loading-dots 1.5s infinite;
+  }
+  
+  @keyframes loading-dots {
+    0%, 20% { content: ''; }
+    40% { content: '.'; }
+    60% { content: '..'; }
+    80%, 100% { content: '...'; }
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Screen reader only - for accessibility */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  
+  .sr-only-focusable:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: inherit;
+    margin: inherit;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Focus styles */
+.focus-visible {
+  @apply focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+}
+
+/* Medical image viewer styles */
+.medical-image-viewer {
+  @apply relative bg-black rounded-lg overflow-hidden;
+}
+
+.medical-image-viewer img {
+  @apply w-full h-full object-contain;
+}
+
+.medical-image-controls {
+  @apply absolute bottom-4 left-1/2 transform -translate-x-1/2 flex items-center space-x-2 bg-black bg-opacity-75 rounded-lg px-3 py-2;
+}
+
+.medical-image-controls button {
+  @apply text-white hover:text-gray-300 p-1;
+}
+
+/* Risk level indicators */
+.risk-low {
+  @apply text-success-600 bg-success-50 border-success-200;
+}
+
+.risk-medium {
+  @apply text-warning-600 bg-warning-50 border-warning-200;
+}
+
+.risk-high {
+  @apply text-danger-600 bg-danger-50 border-danger-200;
+}
+
+.risk-critical {
+  @apply text-red-700 bg-red-100 border-red-300 font-semibold;
+}
+
+/* Animation classes */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.slide-up {
+  animation: slideUp 0.3s ease-out;
+}
+
+.pulse-slow {
+  animation: pulse 3s infinite;
+}
+
+/* Findings Display Component Styles */
+/* Requirements: 4.2 - Highlighting styles for abnormal/critical findings */
+.findings-display {
+  @apply w-full;
+}
+
+/* Container styles */
+.findings-content {
+  @apply bg-white rounded-lg border border-gray-200 p-4 sm:p-6;
+  min-height: 200px;
+}
+
+/* Loading state */
+.findings-loading {
+  @apply flex flex-col items-center justify-center py-12;
+}
+
+.findings-loading .animate-spin {
+  @apply h-8 w-8 border-2 border-gray-200 border-t-primary-600 rounded-full;
+}
+
+.findings-loading p {
+  @apply mt-3 text-sm text-gray-600;
+}
+
+/* Error state */
+.findings-error {
+  @apply flex flex-col items-center justify-center py-12 text-center;
+}
+
+.findings-error h3 {
+  @apply mt-3 text-base font-semibold text-gray-900;
+}
+
+.findings-error p {
+  @apply mt-2 text-sm text-gray-600 max-w-md;
+}
+
+.findings-error button {
+  @apply mt-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors;
+}
+
+.findings-error button:focus {
+  @apply ring-2 ring-offset-2 ring-primary-500;
+}
+
+/* Empty state */
+.findings-empty {
+  @apply flex items-center justify-center py-12 text-center;
+}
+
+.findings-empty p {
+  @apply text-sm text-gray-500;
+}
+
+/* Findings list */
+.findings-list {
+  @apply space-y-6;
+}
+
+/* Metadata header */
+.findings-metadata {
+  @apply text-xs text-gray-500 pb-3 border-b border-gray-200 space-y-1;
+}
+
+/* Findings group (by report type) */
+.findings-group {
+  @apply space-y-3;
+}
+
+.findings-group h3 {
+  @apply text-base font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100;
+}
+
+/* Individual finding item */
+.finding-item {
+  @apply p-4 rounded-lg border transition-all duration-200;
+}
+
+.finding-item:hover {
+  @apply shadow-sm;
+}
+
+/* Significance-based highlighting - Requirements: 4.2 */
+.finding-normal {
+  @apply border-gray-200 bg-white;
+}
+
+.finding-abnormal {
+  @apply border-yellow-300 bg-yellow-50;
+}
+
+.finding-critical {
+  @apply border-red-300 bg-red-50;
+}
+
+/* High contrast mode support for accessibility */
+@media (prefers-contrast: high) {
+  .finding-abnormal {
+    @apply border-yellow-500 bg-yellow-100;
+  }
+  
+  .finding-critical {
+    @apply border-red-500 bg-red-100;
+  }
+}
+
+/* Finding item content */
+.finding-item .font-medium {
+  @apply text-sm text-gray-900;
+}
+
+.finding-item .text-xs {
+  @apply text-gray-600;
+}
+
+/* Significance text colors */
+.text-red-700 {
+  @apply font-semibold;
+}
+
+.text-yellow-700 {
+  @apply font-semibold;
+}
+
+/* Responsive design - Requirements: 4.2 */
+@media (max-width: 640px) {
+  .findings-content {
+    @apply p-4;
+  }
+  
+  .finding-item {
+    @apply p-3;
+  }
+  
+  .findings-group h3 {
+    @apply text-sm;
+  }
+}
+
+/* Focus indicators for accessibility - Requirements: 4.1 */
+.findings-error button:focus-visible {
+  @apply outline-none ring-2 ring-offset-2 ring-primary-500;
+}
+
+/* Keyboard navigation support */
+.finding-item:focus-within {
+  @apply ring-2 ring-primary-500 ring-offset-2;
+}
+
+/* Reduced motion support for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .findings-loading .animate-spin {
+    animation: none;
+    @apply border-t-primary-600;
+  }
+  
+  .finding-item {
+    transition: none;
+  }
+  
+  .findings-error button {
+    transition: none;
+  }
+}
+
+/* Print styles for findings */
+@media print {
+  .findings-display {
+    @apply border border-gray-300;
+  }
+  
+  .findings-error button {
+    display: none;
+  }
+  
+  .finding-item {
+    @apply break-inside-avoid;
+  }
+  
+  .findings-group {
+    @apply break-inside-avoid;
+  }
+}
+
+/* Dark mode support (if needed in future) */
+@media (prefers-color-scheme: dark) {
+  .findings-content {
+    @apply bg-gray-800 border-gray-700;
+  }
+  
+  .findings-metadata {
+    @apply text-gray-400 border-gray-700;
+  }
+  
+  .findings-group h3 {
+    @apply text-gray-100 border-gray-700;
+  }
+  
+  .finding-normal {
+    @apply bg-gray-800 border-gray-700;
+  }
+  
+  .finding-item .font-medium {
+    @apply text-gray-100;
+  }
+  
+  .finding-item .text-xs {
+    @apply text-gray-400;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-break {
+    page-break-before: always;
+  }
+}

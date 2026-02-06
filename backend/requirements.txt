@@ -1,0 +1,27 @@
+fastapi
+uvicorn
+sqlalchemy
+mysql-connector-python
+python-multipart
+python-dotenv
+pydantic
+pydantic-settings
+httpx
+# Image/PDF Processing
+pydicom
+pillow
+pdfplumber
+numpy
+# AI (Google GenAI)
+google-generativeai
+
+# ML / Fine-tuning (Hugging Face)
+torch 
+transformers
+datasets
+accelerate
+scikit-learn
+pandas
+huggingface_hub
+peft
+bitsandbytes
